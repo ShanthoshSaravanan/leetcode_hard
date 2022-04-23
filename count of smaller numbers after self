@@ -1,0 +1,10 @@
+class Solution:
+    def countSmaller(self, a: List[int]) -> List[int]:
+        t=a[:]
+        t.sort()
+        res=[]
+        for i in a:
+            id=bisect.bisect_left(t,i)
+            res.append(id)
+            del t[id]
+        return res
