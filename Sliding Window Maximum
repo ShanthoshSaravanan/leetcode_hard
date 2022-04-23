@@ -1,0 +1,15 @@
+class Solution:
+    def maxSlidingWindow(self, a: List[int], k: int) -> List[int]:
+        dq=deque()
+        res=[]
+        i=0
+        while i<k:
+            dq.append(a[i])
+            i+=1
+        res.append(max(dq))
+        dq.popleft()
+        for i in range(k,len(a)):
+            dq.append(a[i])
+            res.append(max(dq))
+            dq.popleft()
+        return res
