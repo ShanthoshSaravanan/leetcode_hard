@@ -1,0 +1,17 @@
+class Solution:
+    def trap(self, a: List[int]) -> int:
+        l=0
+        r=len(a)-1
+        ml=0
+        mr=0
+        res=0
+        while l<r:
+            if a[l]<a[r]:
+                if a[l]>=ml: ml=a[l]
+                else: res+=ml-a[l]
+                l+=1
+            else:
+                if a[r]>=mr: mr=a[r]
+                else: res+=mr-a[r]
+                r-=1
+        return res
